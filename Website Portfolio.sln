@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4190890-5E21-41FA-B68D-3E8615DFB9B3}"
 	ProjectSection(SolutionItems) = preProject
 		contact.html = contact.html
+		holygrail.html = holygrail.html
 		homepage.html = homepage.html
 		philosophy.html = philosophy.html
 		showcase.html = showcase.html
