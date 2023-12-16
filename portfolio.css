@@ -42,39 +42,91 @@ blockquote {
     text-align: center;
 }
 
-
-.wrapper {
-    display: block;
-    margin: auto;
-    max-width: 60%;
-    position: relative;
+nav {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: center;
+    font-family: Lugrasimo, serif;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    background: #ff9999;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+    border-radius: 1%;
 }
 
-.left-side {
+.main {
     display: block;
-    max-width: 20%;
-    margin: 0;
+    color: #743574;
     position: relative;
-    float: left;
+    background: linear-gradient(#DAE2F8,#FFE1E1);
+    background-size: 900px auto;
+    background-position: bottom center;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+    border-radius: 1%;
+    padding: 1px 50px 50px 50px;
 }
 
-.right-side {
-    display: block;
-    max-width: 20%;
-    margin: 0;
-    position: relative;
-    float: right;
+
+
+/**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+    min-height: 100vh;
 }
 
-.graphics {
-    margin-top: 100px;
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
     display: flex;
-    flex-wrap: wrap;
+    flex: 1 1 auto;
     flex-direction: column;
-    align-items: center;
-    row-gap: 150px;
-    max-width: 20%;
-    justify-content: center;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+    flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+    order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+    /**
+	 * Body items are now side by side
+	 */
+    .holy-grail-body {
+        flex-direction: row;
+    }
+
+    /**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+    .hg-sidebar {
+        flex: 0 0 260px;
+    }
 }
 
 .header {
@@ -91,17 +143,6 @@ blockquote {
         padding-top: 150px;
         color: #743574;
     }
-
-nav {
-    margin-top: 40px;
-    padding: 24px;
-    text-align: center;
-    font-family: Lugrasimo, serif;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    background: #ff9999;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-    border-radius: 1%;
-}
 
 .link-1 {
     transition: 0.3s ease;
@@ -135,40 +176,16 @@ nav {
         padding: 6px 0;
     }
 
-
-.main {
-    display: block;
-    color: #743574;
-    position: relative;
-    background: linear-gradient(#DAE2F8,#FFE1E1);
-    background-size: 900px auto;
-    background-position: bottom center;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-    border-radius: 1%;
-    padding: 1px 50px 50px 50px;
+.graphics {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 150px;
+    max-width: 20%;
+    justify-content: center;
 }
-
-/*prevent image overflow?*/
-.inner img {
-    max-width: 100%;
-    height: auto;
-}
-
-.footer {
-    display: block;
-    font-size: 0.85em;
-    background: #444e6f;
-    line-height: 150%;
-    background-color: #ffffcc;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
-    border-radius: 3%;
-}
-
-    .footer a {
-        color: #ffb0b0;
-    }
 
 #change-bg {
     width: 20%;
@@ -193,61 +210,18 @@ button {
         background-color: #ffa6d2;
     }
 
-
-
-/*
-responsive stuff!!
-*/
-
-/* narrow screen, just narrows column */
-@media(max-width:1050px) {
-    .wrapper {
-        width: 65%;
-    }
-
-    nav1 {
-        margin-left: 600px;
-    }
-
-    .left-side {
-        width: 17.5%;
-    }
-
-    .right-side {
-        width: 17.5%;
-    }
+.footer {
+    display: block;
+    font-size: 0.85em;
+    background: #444e6f;
+    line-height: 150%;
+    background-color: #ffffcc;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+    border-radius: 3%;
 }
 
-/*For smallest screens, switch to percentage-based width, and move the side tab buttons to the space under the header as centered buttons.*/
-@media(max-width:900px) {
-    .wrapper {
-        width: 80%;
+    .footer a {
+        color: #ffb0b0;
     }
-
-    nav1 {
-        position: static;
-        margin-left: 0;
-        margin: 0 auto;
-        width: 100%;
-        text-align: center;
-    }
-
-        nav1 .navlink {
-            display: inline-block;
-            border-radius: 15px 5px;
-            margin: 15px 0;
-            padding: 5px 15px 10px 15px;
-            width: auto;
-        }
-
-            nav1 .navlink:hover {
-                padding-left: 15px;
-            }
-}
-
-/*If on mobile, maximize the space available by increasing width to 95%.*/
-@media(orientation:portrait) {
-    .wrapper {
-        width: 95%;
-    }
-}
