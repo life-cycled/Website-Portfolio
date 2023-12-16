@@ -1,6 +1,10 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Lugrasimo);
 @import url(https://fonts.googleapis.com/css?family=Charm);
 
+
+/* we are catering to mobile layout first, 
+    then using queries for desktop layouts */
+
 body {
     background-color: #bdb5d5;
     background-image: url(pastelbluesparkles.webp);
@@ -34,7 +38,6 @@ h1 {
 
 blockquote {
     font-style: italic;
-    border-left: 1px solid #aae6ff;
     background: pink;
     padding: 5px 20px;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
@@ -51,6 +54,11 @@ nav {
     background: #ff9999;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
     border-radius: 1%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main {
@@ -106,32 +114,12 @@ nav {
  */
 .holy-grail-sidebar-1 {
     order: -1;
-}
-
-/**
- * Let's introduce bigger screen
- */
-
-@media (min-width: 768px) {
-    /**
-	 * Body items are now side by side
-	 */
-    .holy-grail-body {
-        flex-direction: row;
-    }
-
-    /**
-	 * Sidebars have a basic 260 width
-	 * and are not really flexible anymore
-	 */
-    .hg-sidebar {
-        flex: 0 0 260px;
-    }
+    display: none;
 }
 
 .header {
     display: block;
-    background-image: url("unicorn.webp");
+    background-image: url("rainbowspace.jpg");
     height: 450px;
     background-size: cover;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
@@ -139,7 +127,7 @@ nav {
 }
 
     .header h1 {
-        font-size: 3.25em;
+        font-size: 2.25em;
         padding-top: 150px;
         color: #743574;
     }
@@ -150,7 +138,7 @@ nav {
     color: #ffffff;
     font-size: 20px;
     text-decoration: none;
-    border-bottom: 4px solid #ff9999;
+    border-bottom: 4px solid #ffffff;
     padding: 20px 0;
     margin: 0 20px;
 }
@@ -225,3 +213,67 @@ button {
     .footer a {
         color: #ffb0b0;
     }
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+    /**
+	 * Body items are now side by side
+	 */
+    .holy-grail-body {
+        flex-direction: row;
+    }
+
+    /**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+    .hg-sidebar {
+        flex: 0 0 260px;
+        display: inline;
+    }
+
+    .graphics {
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 150px;
+        max-width: 20%;
+        justify-content: center;
+    }
+
+    nav {
+        margin-top: 40px;
+        padding: 24px;
+        text-align: center;
+        font-family: Lugrasimo, serif;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        background: #ff9999;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+        border-radius: 1%;
+        display: block;
+    }
+
+    .link-1 {
+        border-bottom: 4px solid #ff9999;
+    }
+
+    .header {
+        display: block;
+        background-image: url("unicorn.webp");
+        height: 450px;
+        background-size: cover;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+        border-radius: 50%;
+    }
+
+        .header h1 {
+            font-size: 3.25em;
+            padding-top: 150px;
+            color: #743574;
+        }
+}
